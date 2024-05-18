@@ -1,1 +1,2 @@
-# ConsoleApp1
+# Clock Pi
+Clock for raspberry pi micro computer 
