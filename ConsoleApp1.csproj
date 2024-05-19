@@ -8,8 +8,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="ImGui.NET" Version="1.90.6.1" />
+    <PackageReference Include="LDtkMonogame" Version="1.2.0" />
     <PackageReference Include="Raylib-cs" Version="6.0.0" />
     <PackageReference Include="Raylib-CsLo" Version="4.2.0.9" />
+    <PackageReference Include="RayWork.RLImgui" Version="0.1.0" />
   </ItemGroup>
 
 </Project>

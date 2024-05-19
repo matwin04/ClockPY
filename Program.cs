@@ -7,15 +7,31 @@ using System.Threading;
 namespace HelloWorld;
 public class MainWindow
 {
+    // Get Day
+    public static string GetDay()
+    {
+        return DateTime.Now.ToString("dd");
+    }
+    // Get Month
+    public static string GetMonth()
+    {
+        return DateTime.Now.ToString("MMMM");
+    }
+    // Get Current Day of week
+    public static string GetCurrentDayofweek()
+    {
+        return DateTime.Now.ToString("ddd");
+    }
+    
     // Get Current Time
     public static string GetCurrentTime()
     {
-        return DateTime.Now.ToString("HH:mm:ss",CultureInfo.InvariantCulture);
+        return DateTime.Now.ToString("HH:mm:ss", CultureInfo.InvariantCulture);
     }
     // Get Current Date
-    public static string GetCurrentDate() 
+    public static string GetCurrentDate()
     {
-        return DateTime.Now.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture);    
+        return DateTime.Now.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture);
     }
     public static void ToggleMode(ref bool darkMode)
     {
@@ -32,11 +48,11 @@ public class MainWindow
 
 
         bool darkMode = false;
-        
-        Rectangle button1 = new Rectangle(190,380,200,50);
+        Rectangle button2 = new Rectangle(400, 380, 200, 50);
+        Rectangle button1 = new Rectangle(10, 380, 200, 50);
         while (!Raylib.WindowShouldClose())
         {
-            if (RayGui.GuiButton(button1,"Switch Style"))
+            if (RayGui.GuiButton(button1, "Switch Style"))
             {
                 ToggleMode(ref darkMode);
             }
@@ -44,7 +60,8 @@ public class MainWindow
             if (darkMode)
             {
                 Raylib.ClearBackground(Raylib.BLACK);
-            } else
+            }
+            else
             {
                 Raylib.ClearBackground(Raylib.WHITE);
             }
@@ -54,11 +71,22 @@ public class MainWindow
             // Date
             string currentDate = GetCurrentDate();
             Raylib.DrawText(currentDate, 190, 300, 50, Raylib.MAGENTA);
+
+            // Day OF WEEK
+            string currentDayofweek = GetCurrentDayofweek();
+            Raylib.DrawText(currentDayofweek, 190, 200, 50, Raylib.GREEN);
+            // Month
+            string currentMonth = GetMonth();
+            Raylib.DrawText(currentMonth, 190, 250, 50, Raylib.BLUE);
+
+            // Day
+            string currentDay = GetDay();
+            Raylib.DrawText(currentDay, 300, 210, 100, Raylib.BLUE);
             // Button Bar Frame
             Raylib.DrawRectangleLines(25, 375, 750, 60, Raylib.RED);
             // Color Mode Button
             RayGui.GuiButton(button1, "Switch Style");
-            
+            RayGui.GuiButton(button2, "settings");
             Raylib.EndDrawing();
 
         }
